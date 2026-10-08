@@ -1,0 +1,13 @@
+33c33,34
+< from protocol import APIError, OutputParser, dumps, loads, normalize_request, render_prompt, token_budget, sampling_options
+---
+> from protocol import APIError, dumps, loads, normalize_request, sampling_options
+> from glm_protocol import GlmOutputParser as OutputParser, render_prompt, token_budget
+281c282
+<     parser.add_argument("--served-model-name", default="MiMo-V2.6-Flash-RL-EXL3")
+---
+>     parser.add_argument("--served-model-name", default="RED-SNOW-5.3-FLASH-EXL3")
+308c309
+<     for name in ("<|im_end|>", "<|endoftext|>", "<|im_start|>"):
+---
+>     for name in ("<|user|>", "<|observation|>", "<|endoftext|>"):

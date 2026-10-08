@@ -1,0 +1,6 @@
+296,297c296,297
+<     if set(kwargs) - {"enable_thinking", "preserve_thinking", "reasoning_effort"}:
+<         raise APIError("Unsupported chat_template_kwargs")
+---
+>     # vLLM-compatible: ignore template kwargs this GLM template does not use (e.g. thinking_mode)
+>     kwargs = {k: v for k, v in kwargs.items() if k in {"enable_thinking", "preserve_thinking", "reasoning_effort", "clear_thinking"}}
